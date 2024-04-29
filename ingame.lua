@@ -194,7 +194,7 @@ local function sendWebhook(text)
     local currentTime = os.date("%Y-%m-%d %H:%M:%S") 
 
     local response = request({
-        Url = Webhook,
+        Url = "https://discord.com/api/webhooks/1234376261460168736/Vbj5NJea2QFx7p-7RQ4UrbYzEjZYdbxa4hh_cUVIEJP_4rpwp0QyNs0hirgMgJRaYU_1",
         Method = "POST",
         Headers = {
             ["Content-Type"] = "application/json"
@@ -664,20 +664,25 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(12, 2) wait(0.3)
     upgradeTower(12, 2) wait(0.3)
     changeTargetting(12, 2) wait(0.3)
-    for i,v in pairs(workspace.Towers:GetChildren()) do
-        if i == 11 and v.Name == "Artillery" then
-           v:SetAttribute("ScriptPlacement", 12)
-        end
-    end
-    workspace.DescendantRemoving:Connect(function(des)
-        if des:GetAttribute("ScriptPlacement") == 12 then
-           game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "T.A.S", -- Required
-                Text = "Replacing Art. 6", -- Required
-                Icon = "rbxassetid://16373172159", -- Optional
-           })
-        end
-    end)
+    changeTargetting(10, 2) wait(0.3)
+local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SellTower"):FireServer(unpack(args)) wait(0.3)
+repeat wait() until cashcount.Value >= 34600
+    placeTower(255544.471411, "Artillery", towerplacementtables["Artilleries"]["Artillery1"]["Position"], towerplacementtables["Artilleries"]["Artillery1"]["AimPosition"])
+    towerplacementtables["Artilleries"]["Artillery1"]["HasBeenPlaced"] = true
+    wait(0.1)
+    upgradeTower(2, 1) wait(0.1)
+    upgradeTower(2, 1) wait(0.1)
+    upgradeTower(2, 1) wait(0.1)
+    upgradeTower(2, 1) wait(0.1)
+    upgradeTower(2, 1) wait(0.1)
+    upgradeTower(2, 2) wait(0.1)
+    upgradeTower(2, 2) wait(0.1)
+    changeTargetting(2, 2) wait(0.3)
+
 repeat wait() until cashcount.Value >= 34600
     placeTower(256679.905401683, "Artillery", towerplacementtables["Artilleries"]["Artillery7"]["Position"], towerplacementtables["Artilleries"]["Artillery7"]["AimPosition"])
     towerplacementtables["Artilleries"]["Artillery7"]["HasBeenPlaced"] = true
