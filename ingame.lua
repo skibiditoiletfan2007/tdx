@@ -589,7 +589,6 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(10, 2) wait(0.3)
     upgradeTower(10, 2) wait(0.3)
     changeTargetting(10, 2) wait(0.3)
-    upgradeTower(11, 2) wait(0.3)
 local args = {
     [1] = 2
 }
@@ -618,6 +617,8 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(11, 1) wait(0.3)
     upgradeTower(11, 1) wait(0.3)
     upgradeTower(11, 2) wait(0.3)
+    upgradeTower(11, 2) wait(0.3)
+    changeTargetting(11, 2) wait(0.3)
 repeat wait() until cashcount.Value >= 34600
     placeTower(256676.72352014502, "Artillery", towerplacementtables["Artilleries"]["Artillery6"]["Position"], towerplacementtables["Artilleries"]["Artillery6"]["AimPosition"])
     towerplacementtables["Artilleries"]["Artillery6"]["HasBeenPlaced"] = true
