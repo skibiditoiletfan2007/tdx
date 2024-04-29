@@ -645,19 +645,6 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(10, 2) wait(0.3)
     upgradeTower(10, 2) wait(0.3)
     changeTargetting(10, 2) wait(0.3)
-repeat wait() until cashcount.Value >= 34600
-    placeTower(256669.66677699002, "Artillery", towerplacementtables["Artilleries"]["Artillery5"]["Position"], towerplacementtables["Artilleries"]["Artillery5"]["AimPosition"])
-    towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"] = true
-    print(towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"])
-    wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 2) wait(0.3)
-    upgradeTower(11, 2) wait(0.3)
-    changeTargetting(11, 2) wait(0.3)
 local args = {
     [1] = 2
 }
@@ -675,6 +662,19 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(2, 2) wait(0.1)
     upgradeTower(2, 2) wait(0.1)
     changeTargetting(2, 2) wait(0.1)
+repeat wait() until cashcount.Value >= 34600
+    placeTower(256669.66677699002, "Artillery", towerplacementtables["Artilleries"]["Artillery5"]["Position"], towerplacementtables["Artilleries"]["Artillery5"]["AimPosition"])
+    towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"] = true
+    print(towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"])
+    wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 2) wait(0.3)
+    upgradeTower(11, 2) wait(0.3)
+    changeTargetting(11, 2) wait(0.3)
 repeat wait() until cashcount.Value >= 34600
     placeTower(256676.72352014502, "Artillery", towerplacementtables["Artilleries"]["Artillery6"]["Position"], towerplacementtables["Artilleries"]["Artillery6"]["AimPosition"])
     towerplacementtables["Artilleries"]["Artillery6"]["HasBeenPlaced"] = true
@@ -703,30 +703,13 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(13, 2) wait(0.3)
     changeTargetting(13, 2) wait(0.3)
 local args = {
-    [1] = 2
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SellTower"):FireServer(unpack(args)) wait(0.3)
-repeat wait() until cashcount.Value >= 34600
-    placeTower(255544.471411, "Artillery", towerplacementtables["Artilleries"]["Artillery1"]["Position"], towerplacementtables["Artilleries"]["Artillery1"]["AimPosition"])
-    towerplacementtables["Artilleries"]["Artillery1"]["HasBeenPlaced"] = true
-    wait(0.1)
-    upgradeTower(2, 1) wait(0.1)
-    upgradeTower(2, 1) wait(0.1)
-    upgradeTower(2, 1) wait(0.1)
-    upgradeTower(2, 1) wait(0.1)
-    upgradeTower(2, 1) wait(0.1)
-    upgradeTower(2, 2) wait(0.1)
-    upgradeTower(2, 2) wait(0.1)
-    changeTargetting(2, 2) wait(0.1)
-local args = {
     [1] = 1
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SellTower"):FireServer(unpack(args)) wait(0.3)
 repeat wait() until cashcount.Value >= 34600
-    placeTower(255544.471411, "Artillery", towerplacementtables["Artilleries"]["Artillery1"]["Position"], towerplacementtables["Artilleries"]["Artillery1"]["AimPosition"])
-    towerplacementtables["Artilleries"]["Artillery1"]["HasBeenPlaced"] = true
+    placeTower(255544.471411, "Artillery", towerplacementtables["Artilleries"]["Artillery2"]["Position"], towerplacementtables["Artilleries"]["Artillery2"]["AimPosition"])
+    towerplacementtables["Artilleries"]["Artillery2"]["HasBeenPlaced"] = true
     wait(0.1)
     upgradeTower(1, 1) wait(0.1)
     upgradeTower(1, 1) wait(0.1)
