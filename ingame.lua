@@ -40,6 +40,13 @@ repeat wait() until game:IsLoaded()
 			end
 		end)
 	end)
+	workspace.Enemies.DescendantAdded:Connect(function(v)
+		task.spawn(function()
+			if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") or v:IsA("Union")  then
+                            v.Transparency = 1
+			end
+		end)
+	end)
 	setscriptable(game.Lighting, "Technology", true)
 	sethiddenproperty(game.Lighting, "Technology", "Compatibility")
 game:GetService("StarterGui"):SetCore("SendNotification",{
