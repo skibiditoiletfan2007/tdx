@@ -843,3 +843,5 @@ repeat wait() until cashcount.Value >= 106850
     upgradeTower(27, 1) wait(0.3)
     upgradeTower(27, 1) wait(0.3)
     changeTargetting(27, 2) wait(0.3)
+repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.Visible == true
+    game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
