@@ -589,31 +589,6 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(10, 2) wait(0.3)
     upgradeTower(10, 2) wait(0.3)
     changeTargetting(10, 2) wait(0.3)
-    for i,v in pairs(workspace.Towers:GetChildren()) do
-        if i == 9 and v.Name == "Artillery" then
-           v:SetAttribute("ScriptPlacement", 10)
-        end
-    end
-    workspace.DescendantRemoving:Connect(function(des)
-        if des:GetAttribute("ScriptPlacement") == 10 then
-           game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "T.A.S", -- Required
-                Text = "Replacing Art. 4", -- Required
-                Icon = "rbxassetid://16373172159", -- Optional
-           })
-        end
-    end)
-repeat wait() until cashcount.Value >= 34600
-    placeTower(256669.66677699002, "Artillery", towerplacementtables["Artilleries"]["Artillery5"]["Position"], towerplacementtables["Artilleries"]["Artillery5"]["AimPosition"])
-    towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"] = true
-    print(towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"])
-    wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 1) wait(0.3)
-    upgradeTower(11, 2) wait(0.3)
     upgradeTower(11, 2) wait(0.3)
 local args = {
     [1] = 2
@@ -632,6 +607,17 @@ repeat wait() until cashcount.Value >= 34600
     upgradeTower(2, 2) wait(0.1)
     upgradeTower(2, 2) wait(0.1)
     changeTargetting(2, 2) wait(0.3)
+repeat wait() until cashcount.Value >= 34600
+    placeTower(256669.66677699002, "Artillery", towerplacementtables["Artilleries"]["Artillery5"]["Position"], towerplacementtables["Artilleries"]["Artillery5"]["AimPosition"])
+    towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"] = true
+    print(towerplacementtables["Artilleries"]["Artillery5"]["HasBeenPlaced"])
+    wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 1) wait(0.3)
+    upgradeTower(11, 2) wait(0.3)
 repeat wait() until cashcount.Value >= 34600
     placeTower(256676.72352014502, "Artillery", towerplacementtables["Artilleries"]["Artillery6"]["Position"], towerplacementtables["Artilleries"]["Artillery6"]["AimPosition"])
     towerplacementtables["Artilleries"]["Artillery6"]["HasBeenPlaced"] = true
@@ -855,7 +841,7 @@ repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.
     })
     game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if (not tpCheck) and queueteleport then
-	    tpCheck = true
+	    tpCheck = truef
 	    queueteleport([[
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/tdx/main/lobby.lua"))()
             ]])
