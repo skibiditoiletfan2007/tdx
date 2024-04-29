@@ -217,7 +217,8 @@ local function sendWebhook(text)
                 }
             }
         })
-    })    
+    })   
+end
 local function skipWave()
     local args = {
         [1] = true
