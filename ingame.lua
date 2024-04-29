@@ -187,6 +187,37 @@ local wavecount = game.Players.LocalPlayer.PlayerGui.Interface.GameInfoBar.Wave.
 local timer = game.Players.LocalPlayer.PlayerGui.Interface.GameInfoBar.TimeLeft.TimeLeftText
 local cashcount = game.Players.LocalPlayer.leaderstats.Cash
 local towercount = 0
+local function sendWebhook(text)
+    local request= http_request or request or (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request)
+    local deviceType = game:GetService("UserInputService"):GetPlatform() == Enum.Platform.Windows and "💻" or "📱"
+    local exe = identifyexecutor() 
+    local currentTime = os.date("%Y-%m-%d %H:%M:%S") 
+
+    local response = request({
+        Url = Webhook,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = game:GetService("HttpService"):JSONEncode({
+            content = "",
+            embeds = {
+                {
+                    title = "TDX.Automation.Strategizer Reporter",
+                    description = "**LOG " .. currentTime .. "**",
+                    type = "rich",
+                    color = Color3.fromRGB(255,255,255),
+                    fields = {              
+                        {
+                            name = "** ---GAME DETAILS--- **",
+                            value = text,
+                            inline = true
+                        },
+                    },
+                }
+            }
+        })
+    })    
 local function skipWave()
     local args = {
         [1] = true
@@ -842,10 +873,11 @@ repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.
     })
     game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if (not tpCheck) and queueteleport then
-	    tpCheck = truef
+	    tpCheck = true
 	    queueteleport([[
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/tdx/main/lobby.lua"))()
             ]])
 	end
     end)
+    sendWebhook("Win")
     game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
