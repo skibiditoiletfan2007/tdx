@@ -9,8 +9,8 @@ repeat wait() until game:IsLoaded()
 	Lighting.FogEnd = 9e9
 	settings().Rendering.QualityLevel = 1
 	for i,v in pairs(game:GetDescendants()) do
-		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-			v.Material = "Plastic"
+		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") or v:IsA("Union")  then
+			v.Material = "SmoothPlastic"
 			v.Reflectance = 0
 		elseif v:IsA("Decal") then
 			v.Transparency = 1
@@ -40,6 +40,8 @@ repeat wait() until game:IsLoaded()
 			end
 		end)
 	end)
+	setscriptable(game.Lighting, "Technology", true)
+	sethiddenproperty(game.Lighting, "Technology", "Compatibility")
 game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "Loading TDX.Automaton.Strategizer", -- Required
 	Text = "This will take 5 seconds.", -- Required
@@ -844,4 +846,19 @@ repeat wait() until cashcount.Value >= 106850
     upgradeTower(27, 1) wait(0.3)
     changeTargetting(27, 2) wait(0.3)
 repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.Visible == true
+    queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+    local tpCheck = false 
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "TDX.Automaton.Strategizer", -- Required
+	Text = "The game has finished.", -- Required
+	Icon = "rbxassetid://16373172159", -- Optional
+    })
+    game.Players.LocalPlayer.OnTeleport:Connect(function(State)
+	if (not tpCheck) and queueteleport then
+	    tpCheck = true
+	    queueteleport([[
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/tdx/main/lobby.lua"))()
+            ]])
+	end
+    end)
     game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
