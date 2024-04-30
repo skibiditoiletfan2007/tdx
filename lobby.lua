@@ -44,6 +44,7 @@ while task.wait(1) do
 	            if (not tpCheck) and queueteleport then
 		       tpCheck = true
 		       queueteleport([[
+			   getgenv().TeleportBackToLobby = teleportbacktolobby
                            loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/tdx/main/ingame.lua"))()
                        ]])
 	            end
