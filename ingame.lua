@@ -909,4 +909,12 @@ repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.
 	end
     end)
     sendWebhook("Win")
-    game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
+    if getgenv().TeleportBackToLobby == true then
+        game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
+    else
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+	    Title = "TDX.Autonomous.Strategizer", -- Required
+	    Text = "Teleporting Back Is Disabled", -- Required
+	    Icon = "rbxassetid://16373172159", -- Optional
+        })
+    end
