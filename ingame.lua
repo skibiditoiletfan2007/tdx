@@ -181,6 +181,18 @@ local towerplacementtables = {
         ["RG6"] = {
             ["Position"] = Vector3.new(377.13330078125, -127.27825164794922, -48.41914367675781),
         },
+        ["RG7"] = {
+            ["Position"] = Vector3.new(393.4051818847656, -127.22732543945312, -55.12413024902344),
+        },
+        ["RG8"] = {
+            ["Position"] = Vector3.new(361.765869140625, -126.9379653930664, -58.92491912841797),
+        },
+        ["RG9"] = {
+            ["Position"] = Vector3.new(364.6772155761719, -126.93230438232422, -62.752113342285156),
+        },
+        ["RG10"] = {
+            ["Position"] = Vector3.new(366.97308349609375, -126.940673828125, -58.83190155029297),
+        },
     }
 }
 local equippedtowers = {
@@ -892,6 +904,50 @@ repeat wait() until cashcount.Value >= 106850
     upgradeTower(27, 1) wait(0.3)
     upgradeTower(27, 1) wait(0.3)
     changeTargetting(27, 2) wait(0.3)
+repeat wait() until cashcount.Value >= 106850
+    placeTower(256708.82091553102, "Railgunner", towerplacementtables["Railgunners"]["RG7"]["Position"])
+    wait(0.3)
+    upgradeTower(28, 2) wait(0.3)
+    upgradeTower(28, 2) wait(0.3)
+    upgradeTower(28, 2) wait(0.3)
+    upgradeTower(28, 2) wait(0.3)
+    upgradeTower(28, 2) wait(0.3)
+    upgradeTower(28, 1) wait(0.3)
+    upgradeTower(28, 1) wait(0.3)
+    changeTargetting(28, 2) wait(0.3)
+repeat wait() until cashcount.Value >= 106850
+    placeTower(256708.82091553102, "Railgunner", towerplacementtables["Railgunners"]["RG8"]["Position"])
+    wait(0.3)
+    upgradeTower(29, 2) wait(0.3)
+    upgradeTower(29, 2) wait(0.3)
+    upgradeTower(29, 2) wait(0.3)
+    upgradeTower(29, 2) wait(0.3)
+    upgradeTower(29, 2) wait(0.3)
+    upgradeTower(29, 1) wait(0.3)
+    upgradeTower(29, 1) wait(0.3)
+    changeTargetting(29, 2) wait(0.3)
+repeat wait() until cashcount.Value >= 106850
+    placeTower(256708.82091553102, "Railgunner", towerplacementtables["Railgunners"]["RG9"]["Position"])
+    wait(0.3)
+    upgradeTower(30, 2) wait(0.3)
+    upgradeTower(30, 2) wait(0.3)
+    upgradeTower(30, 2) wait(0.3)
+    upgradeTower(30, 2) wait(0.3)
+    upgradeTower(30, 2) wait(0.3)
+    upgradeTower(30, 1) wait(0.3)
+    upgradeTower(30, 1) wait(0.3)
+    changeTargetting(30, 2) wait(0.3)
+repeat wait() until cashcount.Value >= 106850
+    placeTower(256708.82091553102, "Railgunner", towerplacementtables["Railgunners"]["RG10"]["Position"])
+    wait(0.3)
+    upgradeTower(31, 2) wait(0.3)
+    upgradeTower(31, 2) wait(0.3)
+    upgradeTower(31, 2) wait(0.3)
+    upgradeTower(31, 2) wait(0.3)
+    upgradeTower(31, 2) wait(0.3)
+    upgradeTower(31, 1) wait(0.3)
+    upgradeTower(31, 1) wait(0.3)
+    changeTargetting(31, 2) wait(0.3)
 repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.Visible == true
     queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
     local tpCheck = false 
@@ -909,12 +965,4 @@ repeat wait() until game.Players.LocalPlayer.PlayerGui.Interface.GameOverScreen.
 	end
     end)
     sendWebhook("Win")
-    if getgenv().TeleportBackToLobby == true then
-        game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
-    else
-        game:GetService("StarterGui"):SetCore("SendNotification",{
-	    Title = "TDX.Autonomous.Strategizer", -- Required
-	    Text = "Teleporting Back Is Disabled", -- Required
-	    Icon = "rbxassetid://16373172159", -- Optional
-        })
-    end
+    game.ReplicatedStorage.Remotes.RequestTeleportToLobby:FireServer()
