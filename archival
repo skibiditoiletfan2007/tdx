@@ -1,0 +1,11 @@
+local function placeTower(tower, cframe, targetting)
+    local args = {
+        [1] = tick(),
+        [2] = tower,
+        [3] = cframe,
+    }
+    if targetting then
+      args[4] = targetting
+    end
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("PlaceTower"):InvokeServer(unpack(args))
+end
